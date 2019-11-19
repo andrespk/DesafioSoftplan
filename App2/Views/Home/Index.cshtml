@@ -5,28 +5,29 @@
     ViewData["Title"] = "Integracao API Desafio Softplan";
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+@using (Html.BeginForm("GetInterests", "Home", FormMethod.Get))
 {
     <div class="text-center">
         <h1 class="display-4">@ViewData["Title"]</h1>
         <div class="row">
             <div class="col-md-3">
-                <label>Valor Inicial</label>
+                <label>Valor Inicial (R$) </label>
                 @Html.TextBoxFor(m => m.ValorInicial, htmlAttributes: new { @class = "form-control", @type = "number" })
             </div>
             <div class="col-md-3">
-                <label>Meses</label>
+                <label>Qtd. Meses</label>
                 @Html.TextBoxFor(m => m.Meses, htmlAttributes: new { @class = "form-control", @type = "number" })
             </div>
             <div class="col-md-3">
-                <label>Taxa de Juros</label>
-                @Html.TextBoxFor(m => m.TaxaJuros, "{0:P4}", htmlAttributes: new { @class = "form-control", @type = "number", @readonly = "readonly" })
+                <label>Taxa de Juros (%)</label>
+                @Html.TextBoxFor(m => m.TaxaJuros, "{0:N2}", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
             </div>
             <div class="col-md-2">
-                <label>Valor Juros</label>
-                @Html.TextBoxFor(m => m.ValorJuros, "{0:N2}", htmlAttributes: new { @class = "form-control", @type = "number", @readonly = "readonly" })
+                <label>Valor Juros (R$) </label>
+                @Html.TextBoxFor(m => m.ValorJuros, "{0:N2}", htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1 inLineWithLabels">
+                <label></label>
                 <input type="submit" class="btn btn-primary" value="Calcular" />
             </div>
         </div>
